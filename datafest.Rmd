@@ -11,6 +11,8 @@ library(dplyr)
 library(lubridate)
 library(ggplot2)
 library(leaflet)
+library(maps)
+
 datafest <- clicks
 ```
 
@@ -42,6 +44,7 @@ topfive <- datafest1 %>%
 ```
 ###Map
 ```{r}
-usa <-
+usa <-map_data("usa")
+ggplot() + geom_polygon(data = usa, aes(x=long, y = lat, group = group)) + coord_fixed(1.3)
 ```
 
