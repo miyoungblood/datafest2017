@@ -35,9 +35,13 @@ datafest1 <- datafest %>%
   slice(1:5) %>%
   arrange(desc(n))
 ```
-
+###Filtering for Top 5 States
 ```{r}
-usa <- 
+topfive <- datafest1 %>%
+  filter(user_location_region %in% c('CA', 'TX', 'FL', 'IL', 'NY'))
 ```
-
+###Map
+```{r}
+usa <-
+```
 
