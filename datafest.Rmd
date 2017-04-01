@@ -9,14 +9,27 @@ output: html_document
 library(tidyverse)
 library(dplyr)
 library(lubridate)
-datafest <- clicks
+datafest <- mini_clicks
 ```
 
 ```{r,message=FALSE}
 datafest1 <- datafest %>%
+<<<<<<< HEAD
   select(date_time,user_location_country, user_location_city, orig_destination_distance,
          is_package, srch_ci, srch_co,is_booking) %>%
   filter(is_booking=='1')
 
+=======
+  mutate(date_time = ymd_hms(date_time))%>%
+  select(date_time,
+         user_location_country, 
+         user_location_city, 
+         orig_destination_distance,
+         is_package, 
+         srch_ci, 
+         srch_co,
+         is_booking)%>%
+ filter(is_booking=='1') 
+>>>>>>> 6735bb70dee2c9a13801b06137c1a9d12e943c87
 ```
 
