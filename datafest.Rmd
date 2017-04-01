@@ -18,23 +18,32 @@ datafest <- clicks
 ```{r,message=FALSE}
 
 datafest1 <- datafest %>%
-  mutate(new_date_time = ymd_hms(date_time),
-         srch_checkin = ymd(srch_ci),
-         srch_co = ymd(srch_co)) %>%
+  mutate(srch_checkin = ymd(srch_ci)) %>%
   inner_join(destinations, by = "srch_destination_id") %>%
   select(user_location_country, 
          user_location_region,
+         srch_destination_latitude,
+         srch_destination_longitude,
          orig_destination_distance,
          srch_destination_id,
          srch_destination_name,
          srch_checkin, 
          is_booking) %>%
-  filter(is_booking == '1', user_location_country == 'UNITED STATES OF AMERICA') %>%
+  filter(is_booking == '1', user_location_country == 'UNITED STATES OF AMERICA')
+
+top_five_dest <- datafest1 %>%
   group_by(user_location_region) %>%
-  count(pop_dest = srch_destination_name, sort = TRUE) %>%
+  count(srch_destination_name, sort = TRUE) %>%
   group_by(user_location_region) %>%
   slice(1:5) %>%
   arrange(desc(n))
+
+
+beta_together <- top_five_dest %>%
+  left_join(destinations, by = "user_location_region")
+
+  
+
 ```
 ###Filtering for Top 5 States
 ```{r}
