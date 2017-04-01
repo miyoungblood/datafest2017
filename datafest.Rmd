@@ -32,7 +32,8 @@ datafest1 <- datafest %>%
          srch_co,
          is_booking) %>%
   filter(is_booking == '1', user_location_country == 'UNITED STATES OF AMERICA') %>%
-  group_by(user_location_region, srch_destination_id)
+  group_by(user_location_region, srch_destination_id) %>%
+  summarize(pop_dest = n_distinct(srch_destination_name))
   
 
 
