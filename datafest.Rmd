@@ -12,7 +12,7 @@ library(lubridate)
 library(ggplot2)
 library(maps)
 
-datafest <- clicks
+datafest <- mini_clicks
 ```
 
 ```{r,message=FALSE}
@@ -38,12 +38,16 @@ top_five_dest <- datafest1 %>%
   slice(1:5) %>%
   arrange(desc(n))
 
+new_table <- destinations %>%
+  select(srch_destination_name,
+         srch_destination_latitude,
+         srch_destination_longitude) 
+
 
 beta_together <- top_five_dest %>%
-  left_join(destinations, by = "user_location_region")
+  left_join(new_table, top_five_dest, by = "srch_destination_name")
 
   
-
 ```
 ###Filtering for Top 5 States
 ```{r}
