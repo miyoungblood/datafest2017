@@ -1,6 +1,6 @@
 ---
 title: "datafest 2017"
-author: "Karen, Diana, Marisa, Tara, Marta"
+author: "Karen Diaz, Diana Fierros-Piña, Marisa Youngblood, Tara Marin, and Marta García"
 date: "3/31/2017"
 output: html_document
 ---
@@ -13,6 +13,7 @@ datafest <- mini_clicks
 ```
 
 ```{r,message=FALSE}
+
 datafest1 <- datafest %>%
   mutate(date_time = ymd_hms(date_time),
          srch_ci = ymd(srch_ci),
@@ -27,7 +28,10 @@ datafest1 <- datafest %>%
          srch_ci, 
          srch_co,
          is_booking) %>%
- filter(is_booking=='1') 
+ filter(is_booking =='1') 
+
+datafest2 <- datafest1 %>%
+  inner_join(destinations, by = "srch_destination_id")
 
 ```
 
