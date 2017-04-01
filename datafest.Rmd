@@ -14,10 +14,11 @@ datafest <- mini_clicks
 ```
 
 ```{r,message=FALSE}
+
 datafest1 <- datafest %>%
-  mutate(date_time = ymd_hms(date_time),
-         srch_ci = ymd(srch_ci),
-         srch_co = ymd(srch_ci)) %>%
+  mutate(new_date_time = ymd_hms(date_time),
+         srch_checkin = ymd(srch_ci),
+         srch_co = ymd(srch_co)) %>%
   select(date_time,
          user_location_country, 
          user_location_city,
@@ -32,4 +33,15 @@ datafest1 <- datafest %>%
   inner_join(destinations, by = "srch_destination_id")
 
 ```
+
+
+
+
+
+
+
+
+
+
+
 
