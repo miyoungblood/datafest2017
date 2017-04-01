@@ -20,7 +20,6 @@ datafest1 <- datafest %>%
          srch_checkin = ymd(srch_ci),
          srch_co = ymd(srch_co)) %>%
   select(new_date_time,
-         date_time,
          user_location_country, 
          user_location_city,
          user_location_region,
