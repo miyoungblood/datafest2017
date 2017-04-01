@@ -1,0 +1,21 @@
+---
+title: "datafest"
+author: "Karen Stefany Diaz"
+date: "3/31/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+datafest <- clicks
+```
+
+```{r,message=FALSE}
+datafest1 <- datafest %>%
+  select(date_time,user_location_country, user_location_city, orig_destination_distance,
+         is_package, srch_ci, srch_co,is_booking) %>%
+  filter(is_booking=='1')
+```
+
