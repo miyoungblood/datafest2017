@@ -10,6 +10,7 @@ library(tidyverse)
 library(dplyr)
 library(lubridate)
 library(ggplot2)
+library(leaflet)
 datafest <- clicks
 ```
 
