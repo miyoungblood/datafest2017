@@ -14,7 +14,6 @@ datafest <- mini_clicks
 ```
 
 ```{r,message=FALSE}
-
 datafest1 <- datafest %>%
   mutate(new_date_time = ymd_hms(date_time),
          srch_checkin = ymd(srch_ci),
