@@ -10,7 +10,7 @@ library(tidyverse)
 library(dplyr)
 library(lubridate)
 library(ggplot2)
-datafest <- mini_clicks
+datafest <- clicks
 ```
 
 ```{r,message=FALSE}
