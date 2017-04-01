@@ -16,7 +16,7 @@ datafest <- mini_clicks
 datafest1 <- datafest %>%
   mutate(date_time = ymd_hms(date_time),
          srch_ci = ymd(srch_ci),
-         srch_co = ymd(srch_ci)) %>%
+         srch_co = ymd(srch_co)) %>%
   select(date_time,
          user_location_country, 
          user_location_city,
