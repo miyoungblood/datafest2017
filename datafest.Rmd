@@ -30,7 +30,7 @@ datafest1 <- datafest %>%
   group_by(user_location_region) %>%
   count(pop_dest = srch_destination_name, sort = TRUE) %>%
   group_by(user_location_region) %>%
-  slice(1) %>%
+  slice(1:4) %>%
   arrange(desc(n))
 ```
 
