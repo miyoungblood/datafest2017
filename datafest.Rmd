@@ -19,7 +19,8 @@ datafest1 <- datafest %>%
   mutate(new_date_time = ymd_hms(date_time),
          srch_checkin = ymd(srch_ci),
          srch_co = ymd(srch_co)) %>%
-  select(date_time,
+  select(new_date_time,
+         date_time,
          user_location_country, 
          user_location_city,
          user_location_region,
@@ -31,6 +32,10 @@ datafest1 <- datafest %>%
          is_booking) %>%
  filter(is_booking =='1') %>%
   inner_join(destinations, by = "srch_destination_id")
+
+
+
+names(datafest1)
 
 ```
 
