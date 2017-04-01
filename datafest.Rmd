@@ -31,8 +31,16 @@ datafest1 <- datafest %>%
   group_by(user_location_region) %>%
   count(pop_dest = srch_destination_name, sort = TRUE) %>%
   group_by(user_location_region) %>%
-  slice(1) %>%
+  slice(1:5) %>%
   arrange(desc(n))
 ```
+```{r}
+library(leaflet)
+m = leaflet() %>% addTiles()
+m  # a map with the default OSM tile layer
 
+m = m %>% setView(-93.65, 42.0285, zoom = 4)
+m
 
+m %>% addPopups(-93.65, 42.0285, 'Here is the <b>Department of Statistics</b>, ISU')
+```
