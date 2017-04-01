@@ -19,6 +19,7 @@ datafest1 <- datafest %>%
          user_location_country, 
          user_location_city, 
          orig_destination_distance,
+         srch_destination_id,
          is_package, 
          srch_ci, 
          srch_co,
