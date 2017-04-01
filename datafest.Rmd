@@ -14,6 +14,8 @@ library(leaflet)
 datafest <- clicks
 ```
 
+###Top Travel Destinations in the U.S. by state
+
 ```{r}
 datafest1 <- datafest %>%
   mutate(new_date_time = ymd_hms(date_time),
@@ -35,4 +37,11 @@ datafest1 <- datafest %>%
   arrange(desc(n))
 ```
 
+###Mapping with Leaflet
+
+```{r}
+topfive <- datafest1 %>%
+  filter(user_location_region %in% c('CA', 'TX', 'FL', 'IL', 'NY'))
+
+```
 
