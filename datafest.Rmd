@@ -14,7 +14,7 @@ datafest <- mini_clicks
 
 ```{r,message=FALSE}
 datafest1 <- datafest %>%
-  mutate(date_time = mdy_hms(date_time))
+  mutate(date_time = mdy_hms(date_time))%>%
   select(date_time,
          user_location_country, 
          user_location_city, 
@@ -22,7 +22,7 @@ datafest1 <- datafest %>%
          is_package, 
          srch_ci, 
          srch_co,
-         is_booking)
+         is_booking)%>%
  filter(is_booking=='1') 
 ```
 
