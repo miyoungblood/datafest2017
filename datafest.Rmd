@@ -10,6 +10,7 @@ library(tidyverse)
 library(dplyr)
 library(lubridate)
 library(ggplot2)
+library(leaflet)
 datafest <- clicks
 ```
 
@@ -33,9 +34,15 @@ datafest1 <- datafest %>%
   group_by(user_location_region) %>%
   slice(1:5) %>%
   arrange(desc(n))
+
 ```
+
+
+
+
+
 ```{r}
-library(leaflet)
+
 m = leaflet() %>% addTiles()
 m  # a map with the default OSM tile layer
 
@@ -44,3 +51,4 @@ m
 
 m %>% addPopups(-93.65, 42.0285, 'Here is the <b>Department of Statistics</b>, ISU')
 ```
+
