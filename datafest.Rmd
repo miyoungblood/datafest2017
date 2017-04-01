@@ -13,7 +13,7 @@ library(ggplot2)
 datafest <- clicks
 ```
 
-```{r,message=FALSE}
+```{r}
 datafest1 <- datafest %>%
   mutate(new_date_time = ymd_hms(date_time),
          srch_checkin = ymd(srch_ci),
@@ -30,7 +30,7 @@ datafest1 <- datafest %>%
   group_by(user_location_region) %>%
   count(pop_dest = srch_destination_name, sort = TRUE) %>%
   group_by(user_location_region) %>%
-  slice(1:4) %>%
+  slice(1:5) %>%
   arrange(desc(n))
 ```
 
