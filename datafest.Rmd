@@ -1,5 +1,5 @@
 ---
-title: "datafest 2017"
+title: "DataFest 2017"
 author: "Karen Diaz, Diana Fierros-Piña, Marisa Youngblood, Tara Marin, and Marta García"
 date: "3/31/2017"
 output: html_document
@@ -12,10 +12,10 @@ library(lubridate)
 library(ggplot2)
 library(maps)
 
-datafest <- mini_clicks
+datafest <- clicks
 ```
 
-```{r,message=FALSE}
+```{r}
 
 datafest1 <- datafest %>%
   mutate(srch_checkin = ymd(srch_ci)) %>%
@@ -49,20 +49,6 @@ beta_together <- top_five_dest %>%
 
   
 ```
-###Filtering for Top 5 State
-```{r}
-topfive <- datafest1 %>%
-  filter(user_location_region %in% c('CA', 'TX', 'FL', 'IL', 'NY'))
-```
-
-
-
-
-
-
-
-
-
 ###Map
 ```{r}
 states <- map_data("state")
