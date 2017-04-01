@@ -9,6 +9,7 @@ output: html_document
 library(tidyverse)
 library(dplyr)
 library(lubridate)
+library(ggplot2)
 datafest <- mini_clicks
 ```
 
@@ -27,9 +28,7 @@ datafest1 <- datafest %>%
          srch_ci, 
          srch_co,
          is_booking) %>%
- filter(is_booking =='1') 
-
-datafest2 <- datafest1 %>%
+ filter(is_booking =='1') %>%
   inner_join(destinations, by = "srch_destination_id")
 
 ```
