@@ -43,11 +43,9 @@ new_table <- destinations %>%
          srch_destination_latitude,
          srch_destination_longitude) 
 
-
 beta_together <- top_five_dest %>%
   left_join(new_table, top_five_dest, by = "srch_destination_name")
 
-  
 ```
 
 
