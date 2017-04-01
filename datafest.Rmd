@@ -1,6 +1,6 @@
 ---
-title: "datafest"
-author: "Karen Stefany Diaz"
+title: "datafest 2017"
+author: "Karen, Diana, Marisa, Tara, Marta"
 date: "3/31/2017"
 output: html_document
 ---
