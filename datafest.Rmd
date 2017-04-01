@@ -1,6 +1,6 @@
 ---
-title: "datafest"
-author: "Karen Stefany Diaz"
+title: "datafest 2017"
+author: "Karen, Diana, Marisa, Tara, Marta"
 date: "3/31/2017"
 output: html_document
 ---
@@ -13,17 +13,22 @@ datafest <- mini_clicks
 ```
 
 ```{r,message=FALSE}
-  datafest1 <- datafest %>%
 
-  mutate(date_time = ymd_hms(date_time))%>%
+
+
+datafest1 <- datafest %>%
+  mutate(date_time = ymd_hms(date_time)) %>%
+
   select(date_time,
          user_location_country, 
-         user_location_city, 
+         user_location_city,
+         user_location_region,
          orig_destination_distance,
+         srch_destination_id,
          is_package, 
          srch_ci, 
          srch_co,
-         is_booking)%>%
+         is_booking) %>%
  filter(is_booking=='1') 
 
 ```
