@@ -15,9 +15,9 @@ datafest <- mini_clicks
 ```{r,message=FALSE}
 
 datafest1 <- datafest %>%
-  mutate(date_time = ymd_hms(date_time),
-         srch_ci = ymd(srch_ci),
-         srch_co = ymd(srch_ci)) %>%
+  mutate(new_date_time = ydm_hms(date_time),
+         srch_checkin = ydm(srch_ci),
+         srch_co = ydm(srch_co)) %>%
   select(date_time,
          user_location_country, 
          user_location_city,
@@ -36,5 +36,31 @@ datafest2 <- datafest1 %>%
 ```
 
 
+<<<<<<< HEAD
 
 hello< my friends
+=======
+```{r}
+working_ex <-  na.omit(mini_clicks) %>%
+  mutate(date_n_time = ymd_hms(date_time),
+         srch_check_in = ymd(srch_ci)) %>%
+  filter(date_n_time >= "2015-01-02",
+         date_n_time <= "2015-12-31",
+         srch_check_in >= "") %>%
+  select(date_n_time, srch_check_in)
+
+typeof(working_ex$date_n_time)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> fd5afbb86994bbb3d9688f532b2570564392eea9
