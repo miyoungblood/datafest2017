@@ -49,7 +49,7 @@ beta_together <- top_five_dest %>%
 
   
 ```
-###Filtering for Top 5 States
+###Filtering for Top 5 State
 ```{r}
 topfive <- datafest1 %>%
   filter(user_location_region %in% c('CA', 'TX', 'FL', 'IL', 'NY'))
