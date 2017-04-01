@@ -29,10 +29,10 @@ datafest1 <- datafest %>%
          is_booking) %>%
   filter(is_booking == '1', user_location_country == 'UNITED STATES OF AMERICA') %>%
   group_by(user_location_region) %>%
-  count(pop_dest = srch_destination_name, sort = TRUE)
-
-
-  
+  count(pop_dest = srch_destination_name, sort = TRUE) %>%
+  group_by(user_location_region) %>%
+  slice(1) %>%
+  arrange(desc(n))
 ```
 
 
