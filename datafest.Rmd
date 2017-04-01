@@ -31,7 +31,7 @@ datafest1 <- datafest %>%
          srch_ci, 
          srch_co,
          is_booking) %>%
-  filter(is_booking =='1') 
+  filter(is_booking =='1', user_location_country=='UNITED STATES OF AMERICA') 
 
 
 ```
