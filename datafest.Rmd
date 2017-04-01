@@ -12,7 +12,7 @@ library(lubridate)
 library(ggplot2)
 library(maps)
 
-datafest <- mini_clicks
+datafest <- clicks
 ```
 
 ```{r,message=FALSE}
