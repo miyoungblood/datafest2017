@@ -63,8 +63,8 @@ ca_base <- ggplot(data = states) +
   geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
   coord_fixed(1.3) + 
   guides(fill=FALSE) +
-  geom_polygon(data = ca_df, mapping = aes(x = long, y = lat, group = group), fill = "#00cc66") + theme_void() + 
-  geom_count(data = beta_together, aes(srch_destination_longitude, srch_destination_latitude, color = "red"))
+  geom_polygon(data = ca_df, mapping = aes(x = long, y = lat, group = group), fill = "#00cc66") + 
+  geom_count(data = beta_together, aes(srch_destination_longitude, srch_destination_latitude, color = "red", size = n))
 
 ca_base
 ```
