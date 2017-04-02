@@ -77,7 +77,7 @@ fl_base
 ```
 
 ###Texas
-```{r, fig.width = 15, fig.height = 10}
+```{r}
 
 legend_title <- legend_title <- "Number \nof People"
 
