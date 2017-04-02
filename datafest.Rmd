@@ -47,7 +47,7 @@ new_table <- destinations %>%
 
 beta_together <- top_five_dest %>%
   left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
-  filter(user_location_region == "MA")
+  filter(user_location_region == "FL")
 
 ```
 
@@ -57,7 +57,7 @@ states <- map_data("state")
 
 usa <-map_data("usa")
 
-ca_df <- subset(states, region == "massachusetts")
+ca_df <- subset(states, region == "florida")
 
 ca_base <- ggplot(data = states) +
   geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
