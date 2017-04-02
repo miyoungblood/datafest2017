@@ -36,7 +36,7 @@ top_five_dest <- datafest1 %>%
   count(srch_destination_name, sort = TRUE) %>%
   group_by(user_location_region) %>%
   slice(1:5) %>%
-  arrange(desc(n))
+  arrange(desc(n)) 
 
   
 
@@ -54,6 +54,8 @@ beta_together <- top_five_dest %>%
 
 ###Florida
 ```{r}
+legend_title <- legend_title <- "Number \nof People"
+
 states <- map_data("state")
 
 usa <-map_data("usa")
@@ -68,14 +70,17 @@ fl_base <- ggplot(data = states) +
   geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
   coord_fixed(1.3) + 
   guides(fill=FALSE) +
-  geom_polygon(data = fl_df, mapping = aes(x = long, y = lat, group = group), fill = "#00cc66") + 
-  geom_count(data = florida_together, aes(srch_destination_longitude, srch_destination_latitude, color = "red", size = n))
+  geom_polygon(data = fl_df, mapping = aes(x = long, y = lat, group = group), fill = "#66ccff") + 
+  geom_count(data = florida_together, aes(srch_destination_longitude, srch_destination_latitude, size = n), color = "#ffb366") + scale_size(legend_title)
 
 fl_base
 ```
 
 ###Texas
-```{r}
+```{r, fig.width = 15, fig.height = 10}
+
+legend_title <- legend_title <- "Number \nof People"
+
 texas_together <- top_five_dest %>%
   left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
   filter(user_location_region == "TX")
@@ -86,8 +91,8 @@ tx_base <- ggplot(data = states) +
   geom_polygon(aes(x = long, y = lat, group = group), color = 'white', fill = "lightgray") + 
   coord_fixed(1.3) + 
   guides(fill=FALSE) +
-  geom_polygon(data = tx_df, mapping = aes(x = long, y = lat, group = group), fill = "#ffb366") + 
-  geom_count(data = texas_together, aes(srch_destination_longitude, srch_destination_latitude, color = "red", size = n))
+  geom_polygon(data = tx_df, mapping = aes(x = long, y = lat, group = group), fill = "#66ccff") + 
+  geom_count(data = texas_together, aes(srch_destination_longitude, srch_destination_latitude, size = n), color = "#ffb366") + scale_size(legend_title)
 
 tx_base
 ```
@@ -106,18 +111,23 @@ usa <-map_data("usa")
 
 ny_df <- subset(states, region == "new york")
 
-ny_base <- ggplot(data = states) +
+us_base <- ggplot(data = states) +
   geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
   coord_fixed(1.3) + 
-  guides(fill=FALSE) +
-  geom_polygon(data = ny_df, mapping = aes(x = long, y = lat, group = group), fill = "#6600cc") + 
-  geom_count(data = ny_together, aes(srch_destination_longitude, srch_destination_latitude, size = n), color = "pink")
+  guides(fill=FALSE)
 
-ny_base
+legend_title <- "Number \nof People"
+
+us_base + geom_polygon(data = ny_df, mapping = aes(x = long, y = lat, group = group), fill = "#66ccff") + geom_count(data = ny_together, aes(srch_destination_longitude, srch_destination_latitude, size = n), color = "#ffb366") + scale_size(legend_title)
+
+
+
 ```
 
 ###Illinois
 ```{r}
+legend_title <- "Number \nof People"
+
 il_together <- top_five_dest %>%
   left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
   filter(user_location_region == "IL")
@@ -128,13 +138,15 @@ il_base <- ggplot(data = states) +
   geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
   coord_fixed(1.3) + 
   guides(fill=FALSE) +
-  geom_polygon(data = il_df, mapping = aes(x = long, y = lat, group = group)) + 
-  geom_count(data =il_together, aes(srch_destination_longitude, srch_destination_latitude, size = n), colour = "yellow")
+  geom_polygon(data = il_df, mapping = aes(x = long, y = lat, group = group), fill = "#66ccff") + 
+  geom_count(data =il_together, aes(srch_destination_longitude, srch_destination_latitude, size = n), colour = "#ffb366") + scale_size(legend_title)
 
 il_base
 ```
 ###California
 ```{r}
+legend_title <- "Number \nof People"
+
 ca_together <- top_five_dest %>%
   left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
   filter(user_location_region == "CA")
@@ -145,8 +157,8 @@ ca_base <- ggplot(data = states) +
   geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
   coord_fixed(1.3) + 
   guides(fill=FALSE) +
-  geom_polygon(data = ca_df, mapping = aes(x = long, y = lat, group = group), fill = "#00cc66") + 
-  geom_count(data = ca_together, aes(srch_destination_longitude, srch_destination_latitude, color = "red", size = n))
+  geom_polygon(data = ca_df, mapping = aes(x = long, y = lat, group = group), fill = "#66ccff") + 
+  geom_count(data = ca_together, aes(srch_destination_longitude, srch_destination_latitude, size = n), color = "#ffb366") + scale_size(legend_title)
 
 ca_base
 ```
