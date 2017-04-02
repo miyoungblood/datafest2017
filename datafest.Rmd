@@ -1,5 +1,5 @@
 ---
-title: "datafest 2017"
+title: "DataFest 2017"
 author: "Karen Diaz, Diana Fierros-Piña, Marisa Youngblood, Tara Marin, and Marta García"
 date: "3/31/2017"
 output: html_document
@@ -15,7 +15,7 @@ library(maps)
 datafest <- clicks
 ```
 
-```{r,message=FALSE}
+```{r}
 
 datafest1 <- datafest %>%
   mutate(srch_checkin = ymd(srch_ci)) %>%
@@ -45,21 +45,34 @@ new_table <- destinations %>%
          srch_destination_latitude,
          srch_destination_longitude) 
 
+<<<<<<< HEAD
 
 
 ```
 
 ### Florida (Karen)
+=======
+beta_together <- top_five_dest %>%
+  left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
+  filter(user_location_region == "FL")
+
+```
+###Map
+>>>>>>> 02d2cf3e512c8f835c7fd2a52e39bea9043d3365
 ```{r}
 states <- map_data("state")
 
 usa <-map_data("usa")
 
+<<<<<<< HEAD
 florida_together <- top_five_dest %>%
   left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
   filter(user_location_region == "FL")
 
 fl_df <- subset(states, region == "florida")
+=======
+ca_df <- subset(states, region == "california")
+>>>>>>> 02d2cf3e512c8f835c7fd2a52e39bea9043d3365
 
 fl_base <- ggplot(data = states) +
   geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
@@ -69,5 +82,23 @@ fl_base <- ggplot(data = states) +
   geom_count(data = florida_together, aes(srch_destination_longitude, srch_destination_latitude, color = "red", size = n))
 
 fl_base
+```
+
+###Texas
+```{r}
+texas_together <- top_five_dest %>%
+  left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
+  filter(user_location_region == "TX")
+
+tx_df <- subset(states, region == "texas")
+
+tx_base <- ggplot(data = states) +
+  geom_polygon(aes(x = long, y = lat, group = group), color = 'white', fill = "lightgray") + 
+  coord_fixed(1.3) + 
+  guides(fill=FALSE) +
+  geom_polygon(data = tx_df, mapping = aes(x = long, y = lat, group = group), fill = "#ffb366") + 
+  geom_count(data = texas_together, aes(srch_destination_longitude, srch_destination_latitude, color = "red", size = n))
+
+tx_base
 ```
 
