@@ -45,34 +45,20 @@ new_table <- destinations %>%
          srch_destination_latitude,
          srch_destination_longitude) 
 
-<<<<<<< HEAD
 
-
-```
-
-### Florida (Karen)
-=======
 beta_together <- top_five_dest %>%
   left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
   filter(user_location_region == "FL")
 
 ```
 ###Map
->>>>>>> 02d2cf3e512c8f835c7fd2a52e39bea9043d3365
 ```{r}
 states <- map_data("state")
 
 usa <-map_data("usa")
 
-<<<<<<< HEAD
-florida_together <- top_five_dest %>%
-  left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
-  filter(user_location_region == "FL")
-
-fl_df <- subset(states, region == "florida")
-=======
 ca_df <- subset(states, region == "california")
->>>>>>> 02d2cf3e512c8f835c7fd2a52e39bea9043d3365
+
 
 fl_base <- ggplot(data = states) +
   geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
