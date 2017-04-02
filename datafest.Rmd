@@ -92,12 +92,22 @@ tx_base <- ggplot(data = states) +
 tx_base
 ```
 
+<<<<<<< HEAD
 ###California
 ```{r}
+=======
+```{r}
+# NEW YORK 
+ny_together <- top_five_dest %>%
+  left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
+  filter(user_location_region == "NY")
+
+>>>>>>> ab6963b87f1e46ccad466c17b332a53ed0a69043
 states <- map_data("state")
 
 usa <-map_data("usa")
 
+<<<<<<< HEAD
 california_together <- top_five_dest %>%
   left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
   filter(user_location_region == "CA")
@@ -113,3 +123,42 @@ ca_base <- ggplot(data = states) +
 
 ca_base
 ```
+=======
+ny_df <- subset(states, region == "new york")
+
+ny_base <- ggplot(data = states) +
+  geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
+  coord_fixed(1.3) + 
+  guides(fill=FALSE) +
+  geom_polygon(data = ny_df, mapping = aes(x = long, y = lat, group = group), fill = "#6600cc") + 
+  geom_count(data = ny_together, aes(srch_destination_longitude, srch_destination_latitude, size = n), color = "pink")
+
+ny_base
+```
+###Illinois
+```{r}
+il_together <- top_five_dest %>%
+  left_join(new_table, top_five_dest, by = "srch_destination_name") %>%
+  filter(user_location_region == "IL")
+
+il_df <- subset(states, region == "illinois")
+
+il_base <- ggplot(data = states) +
+  geom_polygon(aes(x=long, y = lat, group = group), color = 'white', fill = "lightgray") + 
+  coord_fixed(1.3) + 
+  guides(fill=FALSE) +
+  geom_polygon(data = IL_df, mapping = aes(x = long, y = lat, group = group)) + 
+  geom_count(data = IL_together, aes(srch_destination_longitude, srch_destination_latitude, size = n), colour = "yellow")
+
+il_base
+```
+
+
+
+
+
+
+
+
+
+>>>>>>> ab6963b87f1e46ccad466c17b332a53ed0a69043
